@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>net.morher.div</groupId>
+	<artifactId>java-bug-hunting</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Java Bug Hunting</name>
+	
+	<properties>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<jetty.version>9.2.6.v20141205</jetty.version>
+		<logback.version>1.0.10</logback.version>
+		<hibernate-core-version>4.3.8.Final</hibernate-core-version>
+		<jodatime.version>2.7</jodatime.version>
+	</properties>
+	
+	<dependencies>
+		<!--  Utilities -->
+	    <dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		    <version>27.0-jre</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+	        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+	
+	</dependencies>
+	
+
+	<dependencyManagement>
+		<dependencies>
+		    <dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>${jodatime.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<finalName>HDApp</finalName>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+				<executions>
+			    <execution>
+			      <id>test-compile</id>
+			      <phase>process-test-sources</phase>
+			      <goals>
+			        <goal>testCompile</goal>
+			      </goals>
+			      <configuration>
+			        <source>1.8</source>
+			        <target>1.8</target>
+			      </configuration>
+			    </execution>
+			  </executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
